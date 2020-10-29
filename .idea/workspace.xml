@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79d03308-00cc-4403-8fed-eab0fc43e6b5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1jTOTdGUFBbf4V7MG8HIpyVVvfP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="79d03308-00cc-4403-8fed-eab0fc43e6b5" name="Default Changelist" comment="" />
+      <created>1603824623569</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603824623569</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="365" y="275" key="#PSD" timestamp="1603905416116">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="365" y="275" key="#PSD/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603905416116" />
+    <state x="382" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603905285704">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="382" y="290" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603905285704" />
+    <state x="401" y="396" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1603834008364">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="401" y="396" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603834008364" />
+    <state width="1246" height="280" key="GridCell.Tab.0.bottom" timestamp="1603984800670">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1246" height="280" key="GridCell.Tab.0.bottom/0.0.1680.1050/-99.-1080.1920.1080@0.0.1680.1050" timestamp="1603887616251" />
+    <state width="1246" height="280" key="GridCell.Tab.0.bottom/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603984800670" />
+    <state width="1246" height="280" key="GridCell.Tab.0.center" timestamp="1603984800669">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1246" height="280" key="GridCell.Tab.0.center/0.0.1680.1050/-99.-1080.1920.1080@0.0.1680.1050" timestamp="1603887616250" />
+    <state width="1246" height="280" key="GridCell.Tab.0.center/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603984800669" />
+    <state width="1246" height="280" key="GridCell.Tab.0.left" timestamp="1603984800669">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1246" height="280" key="GridCell.Tab.0.left/0.0.1680.1050/-99.-1080.1920.1080@0.0.1680.1050" timestamp="1603887616249" />
+    <state width="1246" height="280" key="GridCell.Tab.0.left/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603984800669" />
+    <state width="1246" height="280" key="GridCell.Tab.0.right" timestamp="1603984800670">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state width="1246" height="280" key="GridCell.Tab.0.right/0.0.1680.1050/-99.-1080.1920.1080@0.0.1680.1050" timestamp="1603887616251" />
+    <state width="1246" height="280" key="GridCell.Tab.0.right/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603984800670" />
+    <state x="145" y="175" key="SettingsEditor" timestamp="1603887824563">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="145" y="175" key="SettingsEditor/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603887824563" />
+    <state x="314" y="369" key="com.intellij.ide.util.TipDialog" timestamp="1603984846235">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="314" y="369" key="com.intellij.ide.util.TipDialog/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603984846235" />
+    <state x="309" y="187" width="670" height="676" key="search.everywhere.popup" timestamp="1603970379376">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="309" y="187" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/-99.-1057.1920.1057@0.23.1680.1027" timestamp="1603970379376" />
+  </component>
+</project>
