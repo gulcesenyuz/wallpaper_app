@@ -20,28 +20,41 @@ class Category extends StatefulWidget {
 class _CategoryState extends State<Category> {
 
   List <WallpaperModel> wallpapers = new List();
+  int noOfImageToLoad = 40;
+  int page = 1;
+  ScrollController _scrollController ;
 
   getCategoryWallpaper()async{
-    var response = await http.get('https://api.pexels.com/v1/search?query=${widget.categorie}&per_page=30&page=1',
+    var response = await http.get('https://api.pexels.com/v1/search?query=${widget.categorie}&per_page=$noOfImageToLoad&page=$page',
         headers:{
           "Authorization" : apiKey
         });
-
-
-
-      setState(() {
         Map<String,dynamic> jsonData = jsonDecode(response.body);
         jsonData["photos"].forEach((element){
           WallpaperModel wallpaperModel = new WallpaperModel();
           wallpaperModel = WallpaperModel.fromMap(element);
           wallpapers.add(wallpaperModel);
+      setState(() {
+
       });
     });
   }
 
+  _scrollListener(){
+    if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
+      noOfImageToLoad = noOfImageToLoad + 40;
+      page = page +1;
+      //print(noOfImageToLoad);
+      //print(page);
+      getCategoryWallpaper();
+
+    }}
+
   @override
   void initState() {
     getCategoryWallpaper();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
     super.initState();
   }
 
@@ -94,6 +107,7 @@ class _CategoryState extends State<Category> {
 
             Expanded(
               child: SingleChildScrollView(
+                controller: _scrollController,
                 child: Column(
                   children: [
                     SizedBox(height: 20,),

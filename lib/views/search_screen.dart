@@ -24,6 +24,9 @@ class _SearchScreenState extends State<SearchScreen> {
   //List<CategorieModel> categories = new List();
   TextEditingController searchController = new TextEditingController();
   List<WallpaperModel> wallpapers = new List();
+  int noOfImageToLoad = 40;
+  int page = 1;
+  ScrollController _scrollController ;
 
   //mapCategories(){
     //List<String> category = new List();
@@ -33,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
   //}
 
   getSearchWallpaper(String query)async{
-    var response = await http.get('https://api.pexels.com/v1/search?query=$query?&per_page=30&page=1',
+    var response = await http.get('https://api.pexels.com/v1/search?query=$query?&per_page=$noOfImageToLoad&page=$page',
         headers:{
           "Authorization" : apiKey
         });
@@ -47,10 +50,19 @@ class _SearchScreenState extends State<SearchScreen> {
     setState(() {
     });
   }
+  _scrollListener(){
+    if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
+      noOfImageToLoad = noOfImageToLoad + 40;
+      page = page +1;
+      getSearchWallpaper(widget.searchQuery);
+
+    }}
   @override
   void initState() {
     //categories = getCategories();
     getSearchWallpaper(widget.searchQuery);
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
     super.initState();
   }
 
@@ -95,6 +107,7 @@ class _SearchScreenState extends State<SearchScreen> {
             SizedBox(height: 20,),
             Expanded(
               child: SingleChildScrollView(
+                controller: _scrollController,
                 child: Column(
                   children: [
                     SizedBox(height: 20,),

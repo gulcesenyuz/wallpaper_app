@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:pet_adoption_app/model/categories_model.dart';
+import 'package:date_format/date_format.dart';
 
 class ImageView extends StatefulWidget {
   final String imgUrl;
@@ -14,6 +16,11 @@ class _ImageViewState extends State<ImageView> {
   bool _hasBeenPressed = true;
   bool _oneTap = true;
   var filePath;
+  List likes = new List();
+  DateTime now = new DateTime.now();
+
+
+  List<CategorieModel> favorites = new List();
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +53,13 @@ class _ImageViewState extends State<ImageView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('21.09',
+                Text('${formatDate(now, [HH,':',nn])}',
                   //TODO:Time ve Tarih ekle
                   style: TextStyle(
                       color: _oneTap ? Colors.white : Colors.transparent,
                       fontSize: 50,
                       fontWeight: FontWeight.w500),),
-                Text('18 October Sunday',
+                Text('${formatDate(now, [d, ' ', M, ' ', D])}',
                   style: TextStyle(
                       color: _oneTap ? Colors.white : Colors.transparent,
                       fontSize: 30,
@@ -80,6 +87,9 @@ class _ImageViewState extends State<ImageView> {
                         _hasBeenPressed = !_hasBeenPressed;
                         //TODO: Favoriler listesi oluştur ve favori butonuna tıklandığında listeye aktar.
                       });
+                      _hasBeenPressed ? likes.remove(widget.imgUrl) : likes.add(widget.imgUrl);
+                      likes;
+                      print(likes);
                     },),
                 ),
                 GestureDetector(

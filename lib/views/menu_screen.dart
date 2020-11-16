@@ -11,8 +11,10 @@ class MenuScreen extends StatefulWidget {
   _MenuScreenState createState() => _MenuScreenState();
 }
 
-Color mainColor = Color.fromRGBO(48, 96, 96, 1.0);
-Color startingColor = Color.fromRGBO(70, 112, 112, 1.0);
+Color mainColor = Colors.black;
+//fromRGBO(48, 96, 96, 1.0);
+Color startingColor = Colors.black;
+//fromRGBO(70, 112, 112, 1.0);
 
 class _MenuScreenState extends State<MenuScreen> {
 
@@ -29,29 +31,8 @@ class _MenuScreenState extends State<MenuScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  children: [
-                    CircleAvatar(backgroundColor: Colors.white,),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Ali Eren',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 22.0),
-                        ),
-
-                      ],
-                    )
-                  ],
-                ),
                 Padding(
-                  padding: EdgeInsets.only(right:150,),
+                  padding: EdgeInsets.only(right:150,top: 100),
                   child: Column(
                     children: [
                      Container(
@@ -76,10 +57,14 @@ class _MenuScreenState extends State<MenuScreen> {
                              padding:  EdgeInsets.only(right:12.0),
                              child: GestureDetector(
                                onTap: (){
+                                 searchController.text.isEmpty ? Navigator.push(context, MaterialPageRoute(
+                                     builder: (context) => MenuFrame()
+                                 ))
+                                     :
                                  Navigator.push(context, MaterialPageRoute(
-                                   builder: (context) =>SearchFrame(
-                                     searchQuery: searchController.text.toLowerCase(),
-                                   )
+                                     builder: (context) => SearchFrame(
+                                       searchQuery: searchController.text.toLowerCase(),
+                                     )
                                  ));
                                },
                                child: Icon(
@@ -122,23 +107,29 @@ class _MenuScreenState extends State<MenuScreen> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: Row(
-                        children: [
-                          Icon(Icons.favorite,),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Favorites',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w600,
+                    GestureDetector(
+                      onTap: (){
+
+
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 24.0),
+                        child: Row(
+                          children: [
+                            Icon(Icons.favorite,),
+                            SizedBox(
+                              width: 20,
                             ),
-                          ),
-                        ],
+                            Text(
+                              'Favorites',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
@@ -186,46 +177,11 @@ class _MenuScreenState extends State<MenuScreen> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: Row(
-                        children: [
-                          Icon(Icons.face,),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Account',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+
                   ],
                 ),
                 Row(
-                  children: [
-                    Icon(
-                      Icons.settings,
-                      color: Colors.white.withOpacity(0.5),
-                      size: 20.0,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      'Settings   |   Log out',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.5),
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
+
                 ),
               ],
             ),

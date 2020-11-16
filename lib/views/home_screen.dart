@@ -5,6 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pet_adoption_app/data/data.dart';
 import 'package:pet_adoption_app/model/wallpaper_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:pet_adoption_app/shared/loading.dart';
+import 'package:pet_adoption_app/widget/ProgressWidget.dart';
 import 'package:pet_adoption_app/widget/widget.dart';
 
 
@@ -20,48 +22,51 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   List <WallpaperModel> wallpapers = new List();
+  int noOfImageToLoad = 40;
+  int page = 1;
+  ScrollController _scrollController ;
+  bool loading = false;
 
-  //int perpage = 40;
-  //int page = 1;
-
-  getTrendingWallpaper()async{
-    var response = await http.get('https://api.pexels.com/v1/curated?&per_page=40&page=1',
+  Future<void> getTrendingWallpaper()async{
+    try{
+      var response = await http.get('https://api.pexels.com/v1/curated?&per_page=$noOfImageToLoad&page=$page',
         headers:{
           "Authorization" : apiKey
-        });
-    setState(() {
-      Map<String,dynamic> jsonData = jsonDecode(response.body);
-      jsonData["photos"].forEach((element){
-        WallpaperModel wallpaperModel = new WallpaperModel();
-        wallpaperModel = WallpaperModel.fromMap(element);
-        wallpapers.add(wallpaperModel);
+        },
+      );
+        Map<String,dynamic> jsonData = jsonDecode(response.body);
+        jsonData["photos"].forEach((element){
+          WallpaperModel wallpaperModel = new WallpaperModel();
+          wallpaperModel = WallpaperModel.fromMap(element);
+          wallpapers.add(wallpaperModel);
       });
-    });
+      setState(() {
+
+      });
+
+    }
+    catch(e){
+      print(e);
+    }
   }
 
-  //fetchThirty (){
-    //perpage = perpage + 30;
-    //page = page + 1;
-    //getTrendingWallpaper();
-  //}
+  _scrollListener(){
+    if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
+      noOfImageToLoad = noOfImageToLoad + 40;
+      page = page +1;
+      //print(noOfImageToLoad);
+      //print(page);
+      getTrendingWallpaper();
 
-  //ScrollController _scrollController = new ScrollController();
+    }}
 
   @override
   void initState() {
     getTrendingWallpaper();
-    //fetchThirty();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
     super.initState();
-    //_scrollController.addListener(() {
-     //print(_scrollController.position.pixels);
-     //if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
-       // fetchThirty();
-      //}
-    //});
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -88,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(height: 20,),
           Expanded(
             child: SingleChildScrollView(
+              controller: _scrollController,
               child: Column(
                 children: [
                   SizedBox(height: 20,),
