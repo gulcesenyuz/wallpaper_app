@@ -26,6 +26,7 @@ Widget wallpaperGridView({List<WallpaperModel> wallpapers,context}){
                 Navigator.push(context, MaterialPageRoute(
                     builder: (context)=>ImageView(
                       imgUrl: wallpaper.src.portrait,
+                      context: context,
                     )
                 ));
               },

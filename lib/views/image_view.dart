@@ -1,12 +1,13 @@
-import 'dart:io';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:pet_adoption_app/model/categories_model.dart';
 import 'package:date_format/date_format.dart';
+import 'package:pet_adoption_app/state/favorites_state.dart';
+import 'package:provider/provider.dart';
 
 class ImageView extends StatefulWidget {
+  final BuildContext context;
   final String imgUrl;
-  ImageView({this.imgUrl});
+  ImageView({this.imgUrl,this.context});
 
   @override
   _ImageViewState createState() => _ImageViewState();
@@ -16,14 +17,28 @@ class _ImageViewState extends State<ImageView> {
   bool _hasBeenPressed = true;
   bool _oneTap = true;
   var filePath;
-  List likes = new List();
+  //List<String> likes ;
   DateTime now = new DateTime.now();
+  bool flag;
+
+  @override
+  void initState() {
+    final likes = Provider.of<FavoritesState>(widget.context);
+    if (likes.favoritesIndex.contains(widget.imgUrl)) {
+      flag = true;
+    } else {
+      flag = false;
+    }
+    super.initState();
+  }
 
 
-  List<CategorieModel> favorites = new List();
+
+
 
   @override
   Widget build(BuildContext context) {
+    var likes = Provider.of<FavoritesState>(context);
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -54,7 +69,6 @@ class _ImageViewState extends State<ImageView> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text('${formatDate(now, [HH,':',nn])}',
-                  //TODO:Time ve Tarih ekle
                   style: TextStyle(
                       color: _oneTap ? Colors.white : Colors.transparent,
                       fontSize: 50,
@@ -79,22 +93,38 @@ class _ImageViewState extends State<ImageView> {
                   margin: EdgeInsets.only(right: 50),
                   child: IconButton(
                     icon : Icon(
-                      Icons.favorite,
+                      flag ? Icons.favorite : Icons.favorite_border,
                       size: 35,),
-                    color: _hasBeenPressed ? Colors.white54 : Colors.red,
+                    color: flag ? Colors.red : Colors.grey.shade500,
                     onPressed: (){
                       setState(() {
-                        _hasBeenPressed = !_hasBeenPressed;
-                        //TODO: Favoriler listesi oluştur ve favori butonuna tıklandığında listeye aktar.
+                        if (likes.favoritesIndex.contains(widget.imgUrl)) {
+                          flag = true;
+                          if (flag) {
+                            likes.removeLikes(widget.imgUrl);
+
+                            flag = false;
+                          } else {
+                            likes.addLikes(widget.imgUrl);
+                            flag = true;
+                          }
+                        } else {
+                          flag = false;
+                          if (flag) {
+                            likes.removeLikes(widget.imgUrl);
+                            flag = false;
+                          } else {
+                            likes.addLikes(widget.imgUrl);
+                            flag = true;
+                          }
+
+                        }
                       });
-                      _hasBeenPressed ? likes.remove(widget.imgUrl) : likes.add(widget.imgUrl);
-                      likes;
-                      print(likes);
+                      print(likes.favoritesIndex);
                     },),
                 ),
                 GestureDetector(
                   onTap: () {
-
 
                   },
                   child: Stack(
