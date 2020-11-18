@@ -45,3 +45,30 @@ Widget wallpaperGridView({List<WallpaperModel> wallpapers,context}){
       )
   );
 }
+
+Widget wallpaperGridViewForFavorites({List<String> wallpapers,context}){
+  return Container(
+      child: GridView.count(
+        crossAxisCount: 2,
+        childAspectRatio: 0.6,
+        padding: EdgeInsets.all(2.0),
+        mainAxisSpacing: 6.0,
+        crossAxisSpacing: 2.0,
+        shrinkWrap: true,
+        physics: ClampingScrollPhysics(),
+        children: wallpapers.map((wallpaper){
+          return GridTile(
+            child: Hero(
+                tag: wallpaper,
+                child:Container(
+                    child:ClipRRect(
+                      borderRadius:BorderRadius.circular(12),
+                      child: Image.network(wallpaper,fit: BoxFit.cover,),
+                    )
+                )
+            ),
+          );
+        }).toList(),
+      )
+  );
+}

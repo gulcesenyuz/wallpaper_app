@@ -5,8 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pet_adoption_app/data/data.dart';
 import 'package:pet_adoption_app/model/wallpaper_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:pet_adoption_app/shared/loading.dart';
-import 'package:pet_adoption_app/widget/ProgressWidget.dart';
 import 'package:pet_adoption_app/widget/widget.dart';
 
 

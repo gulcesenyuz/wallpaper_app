@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pet_adoption_app/views/category_frame.dart';
+import 'package:pet_adoption_app/views/favorites_frame.dart';
 import 'package:pet_adoption_app/views/menu_frame.dart';
 import 'package:pet_adoption_app/views/search_frame.dart';
 import 'package:pet_adoption_app/views/search_screen.dart';
@@ -109,7 +110,9 @@ class _MenuScreenState extends State<MenuScreen> {
                     ),
                     GestureDetector(
                       onTap: (){
-
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context)=> FavoritesFrame()
+                        ));
 
                       },
                       child: Padding(
